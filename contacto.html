@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTEGRAL LUCIANO</title>
-    <meta property="og:title" content="INTEGRAL LUCIANO">
+    <title>INTEGRAL AUTOMOTOR LUCIANO</title>
+    <meta property="og:title" content="INTEGRAL AUTOMOTOR LUCIANO">
     <meta name="description" content="Pagina de Contacto de Integral Luciano, especialistas en reparación de tableros, diagnóstico por PC, lubricentro y venta de repuestos multimarca.">
     <meta property="og:url" content="https://zarico87.github.io/Integral.Luciano/">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+
+     <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <style>
+    .mensaje-exito {
+      display: none;
+      color: green;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,7 +28,7 @@
     <header>
          <div class="logo">
             <img src="img/logointegral.png" alt="logo de Integral Luciano"  width="200px" height="150px">
-            <h1>INTEGRAL LUCIANO</h1>
+            <h1>INTEGRAL AUTOMOTOR LUCIANO</h1>
         </div>
 
         <nav>
@@ -32,7 +44,9 @@
     <section id="contacto">
         <h2 id="title-contacto">Contacto</h2>
 
-        <form>
+        <form id="formulario">
+               
+            <input type="text" name="empresa" id="empresa" style="display:none">
             <input 
                 type="text" 
                 name="nombre" 
@@ -56,6 +70,7 @@
             ></textarea>
 
             <button type="submit">Enviar mensaje</button>
+             <p class="mensaje-exito" id="exito">✅ Mensaje enviado con éxito</p>
         </form>
     </section>
 
@@ -77,6 +92,51 @@
 <a href="https://wa.me/543517529016" class="whatsapp" target="_blank">
     💬
 </a>
+ <script>
+  (function() {
+    emailjs.init("_CCHtNYhc1rbCWkr4");
+  })();
+
+  let tiempoInicio = Date.now();
+
+  document.getElementById("formulario").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const honeypot = document.getElementById("empresa").value;
+
+    // 🛑 1. Bloquear bots (honeypot)
+    if (honeypot !== "") {
+      console.log("Spam detectado");
+      return;
+    }
+
+    // 🛑 2. Bloquear envíos demasiado rápidos (< 3 segundos)
+    let tiempoActual = Date.now();
+    if ((tiempoActual - tiempoInicio) < 3000) {
+      alert("Esperá unos segundos antes de enviar");
+      return;
+    }
+
+    // 🛑 3. Validación básica extra
+    const mensaje = document.querySelector("textarea[name='mensaje']").value;
+    if (mensaje.length < 10) {
+      alert("El mensaje es demasiado corto");
+      return;
+    }
+
+    // 🚀 Envío
+    emailjs.sendForm("service_j18q3sj", "template_aot3bs9", this)
+      .then(() => {
+        document.getElementById("exito").style.display = "block";
+        this.reset();
+        tiempoInicio = Date.now(); // reset tiempo
+      })
+      .catch(error => {
+        alert("Error al enviar");
+        console.log(error);
+      });
+  });
+</script>
 
 </body>
 </html>
