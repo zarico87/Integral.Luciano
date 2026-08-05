@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTEGRAL AUTOMOTOR LUCIANO</title>
-    <meta property="og:title" content="INTEGRAL AUTOMOTOR LUCIANO">
-    <meta name="description" content="Pagina de Contacto de Integral Luciano, especialistas en reparación de tableros, diagnóstico por PC, lubricentro y venta de repuestos multimarca.">
-    <meta property="og:url" content="https://zarico87.github.io/Integral.Luciano/">
+    <title>Contacto | INTEGRAL AUTOMOTOR LUCIANO</title>
+    <meta name="description" content="Contacta a Integral Automotor Luciano en Córdoba Capital. Encuéntranos en Mariano Fragueiro 653, Barrio Ducasse. Reserva tu turno hoy.">
+    <meta name="keywords" content="contacto, taller mecanico cordoba, mariano fragueiro 653, barrio ducasse, reserva turno, integral luciano">
+    <meta property="og:title" content="Contacto | INTEGRAL AUTOMOTOR LUCIANO">
+    <meta property="og:description" content="Contáctanos o reserva tu turno en nuestro taller mecánico en Barrio Ducasse, Córdoba Capital.">
+    <meta property="og:url" content="https://zarico87.github.io/Integral.Luciano/contacto.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              azul: '#294DCF',
+              gris: '#86888F',
+              verde: '#26A619',
+              naranja: '#E8730C',
+              blanco: '#ffffff'
+            }
+          }
+        }
+      }
+    </script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
      <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
@@ -25,17 +49,24 @@
 <body>
 
  <!-- Encabezado -->
-    <header>
-         <div class="logo">
-            <img src="img/logointegral.png" alt="logo de Integral Luciano"  width="200px" height="150px">
-            <h1>INTEGRAL AUTOMOTOR LUCIANO</h1>
-        </div>
+    <header class="bg-azul flex flex-col md:flex-row items-center justify-between p-4 relative">
+        <a href="index.html" class="logo flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
+            <img src="img/logointegral.png" alt="logo de Integral Luciano" class="w-32 md:w-[200px] h-auto">
+            <h1 class="text-blanco text-2xl text-center ml-2">INTEGRAL AUTOMOTOR LUCIANO</h1>
+        </a>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+        <!-- Botón menú móvil -->
+        <button id="menu-btn" class="md:hidden text-blanco focus:outline-none absolute right-4 top-1/2 transform -translate-y-1/2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <nav id="menu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 transition-all duration-300">
+            <ul class="flex flex-col md:flex-row gap-4 text-center w-full">
+                <li><a href="index.html" class="text-xl text-blanco font-bold hover:text-naranja hover:scale-110 transition-transform inline-block">Inicio</a></li>
+                <li><a href="servicios.html" class="text-xl text-blanco font-bold hover:text-naranja hover:scale-110 transition-transform inline-block">Servicios</a></li>
+                <li><a href="contacto.html" class="text-xl text-blanco font-bold hover:text-naranja hover:scale-110 transition-transform inline-block">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -74,12 +105,29 @@
         </form>
     </section>
 
-    <section id="qrcode">
+    <section id="qrcode" class="flex flex-col md:flex-row items-center justify-center gap-8 my-8 px-4 w-full max-w-6xl mx-auto">
+        <!-- Mapa -->
+        <div class="bg-black/25 p-6 rounded-xl shadow-lg w-full md:w-1/2 flex flex-col items-center">
+            <h2 class="text-2xl text-verde mb-4 drop-shadow-md text-center font-bold">Nuestra Ubicación</h2>
+            <p class="text-blanco mb-4 text-center">Mariano Fragueiro 653, Barrio Ducasse<br>Córdoba Capital, CP 5000</p>
+            <div class="w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.5786191763784!2d-64.1856752!3d-31.3982054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943298642a8b9fbd%3A0xf5c3bcfa2354c375!2sMariano%20Fragueiro%20653%2C%20X5000%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1715000000000!5m2!1ses-419!2sar" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
          <!-- QR -->
-        <div class="qr-box">
-        <h2>Contactános por WhatsApp</h2>
-        <img src="img/qrcode.png" alt="QR WhatsApp">
-        <p>Escaneá y chateá directo</p>
+        <div class="bg-black/25 p-6 rounded-xl shadow-lg w-full md:w-1/2 flex flex-col items-center justify-center">
+            <h2 class="text-2xl text-verde mb-4 drop-shadow-md text-center font-bold">Chatea con nosotros</h2>
+            <img src="img/qrcode.png" alt="QR WhatsApp" class="w-48 h-48 shadow-lg mb-4 object-contain rounded-lg">
+            <p class="text-blanco text-center text-lg">Escaneá para contactarnos directo</p>
         </div>
     </section>
 </main>
@@ -113,28 +161,89 @@
     // 🛑 2. Bloquear envíos demasiado rápidos (< 3 segundos)
     let tiempoActual = Date.now();
     if ((tiempoActual - tiempoInicio) < 3000) {
-      alert("Esperá unos segundos antes de enviar");
+      Swal.fire({
+        icon: 'warning',
+        title: '¡Demasiado rápido!',
+        text: 'Esperá unos segundos antes de enviar el formulario nuevamente.',
+        confirmButtonColor: '#E8730C'
+      });
       return;
     }
 
-    // 🛑 3. Validación básica extra
-    const mensaje = document.querySelector("textarea[name='mensaje']").value;
+    // 🛑 3. Validación de campos
+    const nombre = document.querySelector("input[name='nombre']").value.trim();
+    const email = document.querySelector("input[name='email']").value.trim();
+    const mensaje = document.querySelector("textarea[name='mensaje']").value.trim();
+
+    if (!nombre || !email || !mensaje) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos incompletos',
+        text: 'Por favor completá todos los campos.',
+        confirmButtonColor: '#E8730C'
+      });
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Email inválido',
+        text: 'Por favor ingresá un correo electrónico válido.',
+        confirmButtonColor: '#E8730C'
+      });
+      return;
+    }
+
     if (mensaje.length < 10) {
-      alert("El mensaje es demasiado corto");
+      Swal.fire({
+        icon: 'warning',
+        title: 'Mensaje muy corto',
+        text: 'El mensaje debe tener al menos 10 caracteres.',
+        confirmButtonColor: '#E8730C'
+      });
       return;
     }
 
-    // 🚀 Envío
+    // 🚀 Envío con SweetAlert2
+    Swal.fire({
+      title: 'Enviando...',
+      text: 'Aguardá un momento por favor',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     emailjs.sendForm("service_j18q3sj", "template_aot3bs9", this)
       .then(() => {
-        document.getElementById("exito").style.display = "block";
+        Swal.fire({
+          icon: 'success',
+          title: '¡Enviado con éxito!',
+          text: 'Tu mensaje fue recibido, nos contactaremos pronto.',
+          confirmButtonColor: '#26A619'
+        });
         this.reset();
         tiempoInicio = Date.now(); // reset tiempo
       })
       .catch(error => {
-        alert("Error al enviar");
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'El envío falló',
+          text: 'Hubo un error de conexión. Por favor intentá más tarde o contactanos por WhatsApp.',
+          confirmButtonColor: '#E8730C'
+        });
       });
+  });
+
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
   });
 </script>
 
